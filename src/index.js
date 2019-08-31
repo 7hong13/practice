@@ -1,12 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import {Menu} from './menu.js';
+import {Sidemenu} from './sidemenu.js';
+import {MainPage} from './mainPage.js';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class Template extends React.Component{
+    render(){
+        return (
+            <div className='container'>
+                <header>
+                   <Menu/>; 
+                </header>
+                <section className='content'>
+                    <nav>
+                        <Sidemenu/>;
+                    </nav>
+                    <main>
+                        <MainPage/>;
+                    </main>
+                </section>
+            </div>
+        )
+    }
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(<Template/>, document.getElementById('root'));
